@@ -7,20 +7,31 @@ using UnityEngine.InputSystem;
 public class CharacterMovement : MonoBehaviour
 {
     public Animator animator; 
-    private bool running;
     public float moveSpeed = 2;
-    private Vector3 moveVector;
+    public float rotationSpeed = 2;
     public bool moveDisabled = false;
+
+    private Rigidbody rb;
+    private Vector3 moveVector;
+    private bool running;
 
     void Start() {
         animator = GetComponentInChildren<Animator>();
+        rb = gameObject.GetComponent<Rigidbody>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        transform.position += moveVector * Time.deltaTime * moveSpeed;   
-        transform.rotation = Quaternion.LookRotation(moveVector);   
+        rb.AddForce(moveVector * moveSpeed);
+        if (moveVector != Vector3.zero) {
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                Quaternion.LookRotation(moveVector),
+                Time.deltaTime * rotationSpeed
+            ); 
+        }
     }
+
     public void OnMove(InputValue value){      
         if(!moveDisabled){
             animator.SetBool("isRunning", true);
