@@ -19,14 +19,12 @@ public class CharacterStats : MonoBehaviour
     private Image karmaFill;
 
 
-    private GloabalStats thisGlobalStats;
     // Start is called before the first frame update
     void Start()
     {
-        thisGlobalStats = GameObject.Find("GlobalManager").GetComponent<GloabalStats>();
-        karma = thisGlobalStats.playerKarma;
-        money = thisGlobalStats.playerMoney;
-        timeLeft = thisGlobalStats.playerTimeLeft;
+        karma = GloabalStats.Instance.playerKarma;
+        money = GloabalStats.Instance.playerMoney;
+        timeLeft = GloabalStats.Instance.playerTimeLeft;
         KarmaSliderHandler();
         UpdateMoney();
     }
@@ -68,9 +66,9 @@ public class CharacterStats : MonoBehaviour
     }
 
     void SavePlayerData(){
-        thisGlobalStats.playerKarma = karma;
-        thisGlobalStats.playerMoney = money;
-        thisGlobalStats.playerTimeLeft = timeLeft;
+        GloabalStats.Instance.playerKarma = karma;
+        GloabalStats.Instance.playerMoney = money;
+        GloabalStats.Instance.playerTimeLeft = timeLeft;
     }
 
     void DisplayTime(float timeToDisplay)

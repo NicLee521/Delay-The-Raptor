@@ -50,7 +50,7 @@ public class CharacterDeedHandler : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Deed"){
-            currentDeed = other.gameObject.GetComponent<DeedObject>();
+            currentDeed = other.gameObject.GetComponent<NpcDeedHandler>().thisDeed;
             if(currentDeed.isEnabled){
                 interactText.text = "Press E to talk with " + currentDeed.npcName;
                 interactText.gameObject.SetActive(true);
@@ -94,8 +94,8 @@ public class CharacterDeedHandler : MonoBehaviour
     }
 
     public void OnYes(){
-        currentDeed.isEnabled = false;
-        //SceneManager.LoadScene(currentDeed.miniGameSceneName, LoadSceneMode.Additive);
+        currentDeed.Disable();
+        SceneManager.LoadScene(currentDeed.miniGameSceneName, LoadSceneMode.Single);
     }
 
     public void OnNo(){
