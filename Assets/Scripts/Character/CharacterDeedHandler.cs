@@ -70,6 +70,7 @@ public class CharacterDeedHandler : MonoBehaviour
     public void OnInteract(InputValue value){
         if(inInteractCol && !interactedWith){
             charMoveController.moveDisabled = true;
+            interactText.gameObject.SetActive(false);
             dialogGiver.text = currentDeed.npcName + ":";
             dialogParent.SetActive(true);
             dialogText.text ="";
