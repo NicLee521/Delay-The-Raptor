@@ -7,6 +7,7 @@ public class GloabalStats : MonoBehaviour
     public int playerKarma;
     public float playerMoney;
     public float playerTimeLeft;
+    public Dictionary<string,bool> deeds = new Dictionary<string,bool>();
 
     public static GloabalStats Instance;
 
