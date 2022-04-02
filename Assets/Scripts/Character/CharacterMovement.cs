@@ -16,6 +16,7 @@ public class CharacterMovement : MonoBehaviour
     private bool running;
 
     void Start() {
+        Time.timeScale = 1.0f;
         animator = GetComponentInChildren<Animator>();
         rb = gameObject.GetComponent<Rigidbody>();
     }

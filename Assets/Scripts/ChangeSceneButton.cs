@@ -18,6 +18,6 @@ public class ChangeSceneButton : MonoBehaviour
     }
 
     public void ChangeScene(){
-        SceneManager.LoadScene("NicScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("Razorville", LoadSceneMode.Single);
     }
 }

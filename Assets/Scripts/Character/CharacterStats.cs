@@ -6,11 +6,11 @@ using TMPro;
 
 public class CharacterStats : MonoBehaviour
 {
-    private int karma;
-    private float money;
-    private float timeLeft;
+    public int karma;
+    public float money;
+    public float timeLeft;
 
-    private bool timerIsRunning = true;
+    public bool timerIsRunning = true;
 
     public Slider karmaSliderNegitive;
     public Slider karmaSliderPositive;
@@ -65,7 +65,7 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
-    void SavePlayerData(){
+    public void SavePlayerData(){
         GloabalStats.Instance.playerKarma = karma;
         GloabalStats.Instance.playerMoney = money;
         GloabalStats.Instance.playerTimeLeft = timeLeft;

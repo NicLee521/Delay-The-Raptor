@@ -2270,6 +2270,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db821c1701cd4643a6dbbe572162fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  karma: 0
+  money: 0
+  timeLeft: 0
+  timerIsRunning: 1
   karmaSliderNegitive: {fileID: 907868041}
   karmaSliderPositive: {fileID: 1330616732}
   timerText: {fileID: 1106799514}
@@ -2287,7 +2291,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.06, y: 1.11, z: 0}
 --- !u!54 &5655905966714352740
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2390,7 +2394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ccf1c6a5cc92b9488d898aaa2fbaa43, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.080068
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ccf1c6a5cc92b9488d898aaa2fbaa43, type: 3}
       propertyPath: m_LocalPosition.y
