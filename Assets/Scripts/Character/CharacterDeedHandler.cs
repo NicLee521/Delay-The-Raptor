@@ -117,12 +117,14 @@ public class CharacterDeedHandler : MonoBehaviour
                 currentDeed.Disable();
                 charStats.SavePlayerData();
                 charStats.UpdatePlayerData();
+                CleanUp();
             } else if(currentDeed.npcName == "Happy Harry" && charStats.money >= 15){
                 charStats.money -= 15;
                 charStats.karma += 25;
                 currentDeed.Disable();
                 charStats.SavePlayerData();
                 charStats.UpdatePlayerData();
+                CleanUp();
             } else{
                 Debug.Log("Not Enough Money");
                 CleanUp();

@@ -46,6 +46,7 @@ public class DogWalk : MonoBehaviour
 
     IEnumerator GoToWaypoints(){
         foreach(Waypoints waypoint in waypoints){
+            transform.LookAt(waypoint.waypoint);
             transform.DOMove(waypoint.waypoint.position, waypoint.travelTime);
             yield return new WaitForSeconds(waypoint.travelTime +1f);
         }

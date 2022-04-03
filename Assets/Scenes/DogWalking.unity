@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4513,17 +4513,17 @@ MonoBehaviour:
   - waypoint: {fileID: 1698611811}
     travelTime: 1.25
   - waypoint: {fileID: 1670723766}
-    travelTime: 1
-  - waypoint: {fileID: 2102847784}
-    travelTime: 0.75
-  - waypoint: {fileID: 1666176851}
-    travelTime: 1.75
-  - waypoint: {fileID: 1223987531}
     travelTime: 2
+  - waypoint: {fileID: 2102847784}
+    travelTime: 3
+  - waypoint: {fileID: 1666176851}
+    travelTime: 4
+  - waypoint: {fileID: 1223987531}
+    travelTime: 3
   - waypoint: {fileID: 1015302956}
-    travelTime: 0.5
+    travelTime: 1
   - waypoint: {fileID: 1231748522}
-    travelTime: 0.5
+    travelTime: 1
 --- !u!4 &1876625814
 Transform:
   m_ObjectHideFlags: 0
