@@ -13,7 +13,10 @@ public class GloabalStats : MonoBehaviour
     public float playerTimeLeft;
     public Dictionary<string,bool> deeds = new Dictionary<string,bool>();
     public Vector3 currentPosition;
-
+    public enum Outcomes {Good, Bad, Other};
+    public Outcomes mrsJenkinsOutcome;
+    public Outcomes oldManOutcomes;
+    public Outcomes wallOutcomes;
 
     void Awake ()   
     {

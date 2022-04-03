@@ -115,11 +115,13 @@ public class GraffitiController : MonoBehaviour
         wallRender.color = Color.Lerp(currColor,newColor,Time.time);
         if(points >= 100){
             gameStillGoing = false;
+            GloabalStats.Instance.wallOutcomes = GloabalStats.Outcomes.Good;
             karma += 25;
             SetInstanceValues();
             win.SetActive(true);
         }else if(points <= -50){
             gameStillGoing = false;
+            GloabalStats.Instance.wallOutcomes = GloabalStats.Outcomes.Bad;
             karma -= 25;
             SetInstanceValues();
             lose.SetActive(true);

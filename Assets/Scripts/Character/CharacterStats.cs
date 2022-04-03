@@ -13,6 +13,7 @@ public class CharacterStats : MonoBehaviour
     public Vector3 currentPosition;
 
     public bool timerIsRunning = true;
+    private Animator animator; 
 
     public Slider karmaSliderNegitive;
     public Slider karmaSliderPositive;
@@ -25,6 +26,7 @@ public class CharacterStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = gameObject.GetComponentInChildren<Animator>();
         UpdatePlayerData();
         if(currentPosition != null &&  SceneManager.GetActiveScene().name == "Razorville"){
             this.transform.position = currentPosition;
@@ -110,7 +112,23 @@ public class CharacterStats : MonoBehaviour
     }
 
     void PlayerWin(){
+        animator.SetBool("heavenBound", true);
+        Vector3 heaven = transform.position;
+        heaven.y += 50;
+        StartCoroutine(LerpPosition(heaven,3));
+    }
 
+    IEnumerator LerpPosition(Vector3 targetPosition, float duration)
+    {
+        float time = 0;
+        Vector3 startPosition = transform.position;
+        while (time < duration)
+        {
+            transform.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = targetPosition;
     }
 
     void PlayerLose(){

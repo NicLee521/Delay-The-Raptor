@@ -30,6 +30,7 @@ public class CarMinigame : MonoBehaviour
             gameController.notFinished = false;
             Time.timeScale = 0.0f;
             charStats.karma -= 25;
+            GloabalStats.Instance.mrsJenkinsOutcome = GloabalStats.Outcomes.Bad;
             loseContainer.SetActive(true);
             charStats.SavePlayerData();
         }
@@ -37,9 +38,11 @@ public class CarMinigame : MonoBehaviour
             Time.timeScale = 0.0f;
             if(Random.Range(0.0f,100.0f) < 50.0f) {
                 winContainer.SetActive(true);
+                GloabalStats.Instance.mrsJenkinsOutcome = GloabalStats.Outcomes.Good;
                 charStats.karma += 25;
             }else{
                 oofContainer.SetActive(true);
+                GloabalStats.Instance.mrsJenkinsOutcome = GloabalStats.Outcomes.Other;
                 charStats.karma -= 25;
             }
             charStats.SavePlayerData();

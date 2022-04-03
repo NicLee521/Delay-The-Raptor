@@ -63,6 +63,7 @@ public class FightclubMingame : MonoBehaviour
                 Destroy(healthBar.transform.GetChild(0).gameObject);
                 Time.timeScale = 0.0f;
                 gotBeatUp.SetActive(true);
+                GloabalStats.Instance.oldManOutcomes = GloabalStats.Outcomes.Other;
                 charStats.money = 0;
                 charStats.karma -= 25;
                 charStats.SavePlayerData();
@@ -73,6 +74,7 @@ public class FightclubMingame : MonoBehaviour
     public void EnemyDefeated(){
         Time.timeScale = 0.0f;
         charStats.karma -= 10;
+        GloabalStats.Instance.oldManOutcomes = GloabalStats.Outcomes.Bad;
         charStats.SavePlayerData();
         enemyDefeated.SetActive(true);
     }

@@ -36,6 +36,7 @@ public class FightclubController : MonoBehaviour
         }else {
             charStats.money -= 20;
             charStats.karma += 25;
+            GloabalStats.Instance.oldManOutcomes = GloabalStats.Outcomes.Good;
             fightclubEntry.SetActive(false);
             charStats.SavePlayerData();
             paidOff.SetActive(true);
