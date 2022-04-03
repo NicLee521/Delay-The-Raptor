@@ -8,6 +8,7 @@ TagManager:
   - Car
   - Win
   - Enemy
+  - Dog
   layers:
   - Default
   - TransparentFX
