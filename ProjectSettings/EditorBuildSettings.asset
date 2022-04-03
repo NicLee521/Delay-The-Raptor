@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OldManJenkins.unity
     guid: 5d57c1ba296029648ad37b3fe9df1459
+  - enabled: 1
+    path: Assets/Scenes/Graffiti.unity
+    guid: b86a9921caeef9747a7108ec092c5149
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 53deebf28e976944c8175eb7383579f3, type: 2}

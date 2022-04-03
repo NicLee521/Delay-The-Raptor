@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Graffti
   m_EditorClassIdentifier: 
   npcName: Derrik
-  miniGameSceneName: 
+  miniGameSceneName: Graffiti
   dialog:
   - Damn this graffiti is vile!
   - If you're gonna go through the trouble of doing it, you should at least make

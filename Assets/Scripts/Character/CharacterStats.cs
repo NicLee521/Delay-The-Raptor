@@ -9,6 +9,7 @@ public class CharacterStats : MonoBehaviour
     public int karma;
     public float money;
     public float timeLeft;
+    public Vector3 currentPosition;
 
     public bool timerIsRunning = true;
 
@@ -26,6 +27,10 @@ public class CharacterStats : MonoBehaviour
         karma = GloabalStats.Instance.playerKarma;
         money = GloabalStats.Instance.playerMoney;
         timeLeft = GloabalStats.Instance.playerTimeLeft;
+        currentPosition = GloabalStats.Instance.currentPosition;
+        if(currentPosition != null){
+            this.transform.position = currentPosition;
+        }
         KarmaSliderHandler();
         UpdateMoney();
     }
@@ -70,6 +75,7 @@ public class CharacterStats : MonoBehaviour
         GloabalStats.Instance.playerKarma = karma;
         GloabalStats.Instance.playerMoney = money;
         GloabalStats.Instance.playerTimeLeft = timeLeft;
+        GloabalStats.Instance.currentPosition = currentPosition;
     }
 
     void DisplayTime(float timeToDisplay)

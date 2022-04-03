@@ -11,25 +11,28 @@ public class CharacterDeedHandler : MonoBehaviour
 {
     public TMP_Text interactText;
     public GameObject dialogParent;
-    public GameObject yesOrNo;
+    public GameObject yes;
+    public GameObject no;
+
 
     private DeedObject currentDeed;
     private bool inInteractCol;
     private bool interactedWith;
     private CharacterMovement charMoveController;
+    private CharacterStats charStats;
     private bool autoFill;
     private bool dialogFinished;
     private TMP_Text dialogGiver;
     private TMP_Text dialogText;
     private bool goToNextDialog;
     private bool endOfDialog;
-    private GameObject interactTextBG; 
 
 
     // Start is called before the first frame update
     void Start()
     {
         charMoveController = this.gameObject.GetComponent<CharacterMovement>();
+        charStats = this.gameObject.GetComponent<CharacterStats>();
         dialogGiver = dialogParent.transform.Find("Dialog Giver").gameObject.GetComponent<TMP_Text>();
         dialogText = dialogParent.transform.Find("Dialog Text").gameObject.GetComponent<TMP_Text>();
         CleanUp();
@@ -38,7 +41,8 @@ public class CharacterDeedHandler : MonoBehaviour
     void CleanUp(){
         interactText.gameObject.transform.parent.gameObject.SetActive(false);
         dialogParent.SetActive(false);
-        yesOrNo.SetActive(false);
+        yes.SetActive(false);
+        no.SetActive(false);
         inInteractCol = false;
         interactedWith = false;
         autoFill = false;
@@ -63,7 +67,7 @@ public class CharacterDeedHandler : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if(other.gameObject.tag == "Deed"){ 
-            interactText.gameObject.SetActive(false);
+            interactText.gameObject.transform.parent.gameObject.SetActive(false);
             inInteractCol = false;
         }
     }
@@ -91,11 +95,14 @@ public class CharacterDeedHandler : MonoBehaviour
             goToNextDialog=true;
         }
         if(endOfDialog){
-            yesOrNo.SetActive(true);
+            yes.SetActive(true);
+            no.SetActive(true);
         }
     }
 
     public void OnYes(){
+        charStats.currentPosition = transform.position;
+        charStats.SavePlayerData();
         currentDeed.Disable();
         SceneManager.LoadScene(currentDeed.miniGameSceneName, LoadSceneMode.Single);
     }

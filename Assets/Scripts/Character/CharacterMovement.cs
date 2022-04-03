@@ -11,7 +11,7 @@ public class CharacterMovement : MonoBehaviour
     public float rotationSpeed = 2;
     public bool moveDisabled = false;
 
-    private Rigidbody rb;
+    public Rigidbody rb;
     private Vector3 moveVector;
     private bool running;
 

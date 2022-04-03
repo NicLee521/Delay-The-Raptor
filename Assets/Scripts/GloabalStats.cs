@@ -12,6 +12,7 @@ public class GloabalStats : MonoBehaviour
     public float playerMoney;
     public float playerTimeLeft;
     public Dictionary<string,bool> deeds = new Dictionary<string,bool>();
+    public Vector3 currentPosition;
 
 
     void Awake ()   
