@@ -6,10 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/NicScene.unity
-    guid: 072e1d8e23cc7fe4f9bc7ec965edef38
+    path: Assets/Scenes/Razorville.unity
+    guid: d983fcc10ae08d04ab8d2aa01dbd35ad
   - enabled: 1
     path: Assets/Scenes/MrsJenkinsStreet.unity
     guid: 922007d53d0db8e41842d7d4df113d58
+  - enabled: 1
+    path: Assets/Scenes/OldManJenkins.unity
+    guid: 5d57c1ba296029648ad37b3fe9df1459
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 53deebf28e976944c8175eb7383579f3, type: 2}
