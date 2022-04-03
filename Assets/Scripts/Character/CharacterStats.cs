@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -25,7 +26,7 @@ public class CharacterStats : MonoBehaviour
     void Start()
     {
         UpdatePlayerData();
-        if(currentPosition != null){
+        if(currentPosition != null &&  SceneManager.GetActiveScene().name == "Razorville"){
             this.transform.position = currentPosition;
         }
     }
@@ -41,6 +42,16 @@ public class CharacterStats : MonoBehaviour
             karmaSliderNegitive.value = karma*-1;
             karmaFill = karmaSliderNegitive.fillRect.gameObject.GetComponent<Image>();
             karmaFill.color = Color.red;
+        }else if(karma <= -100){
+            karmaSliderPositive.gameObject.SetActive(false);
+            karmaSliderNegitive.value = -100;
+            karmaFill = karmaSliderNegitive.fillRect.gameObject.GetComponent<Image>();
+            karmaFill.color = Color.red;
+        }else if(karma >= 100){
+            karmaSliderNegitive.gameObject.SetActive(false);
+            karmaSliderPositive.value = 100;
+            karmaFill = karmaSliderPositive.fillRect.gameObject.GetComponent<Image>();
+            karmaFill.color = Color.blue;
         }else{
             karmaSliderNegitive.value = 0;
             karmaSliderPositive.value = 0;
@@ -68,9 +79,13 @@ public class CharacterStats : MonoBehaviour
             }
             else
             {
-                Debug.Log("Time has run out!");
                 timeLeft = 0;
                 timerIsRunning = false;
+                if(karma >= 50){
+                    PlayerWin();
+                }else{
+                    PlayerLose();
+                }
             }
         }
     }
@@ -92,5 +107,13 @@ public class CharacterStats : MonoBehaviour
 
     void UpdateMoney(){
         moneyText.text = "$" + money;
+    }
+
+    void PlayerWin(){
+
+    }
+
+    void PlayerLose(){
+
     }
 }
