@@ -24,15 +24,10 @@ public class CharacterStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        karma = GloabalStats.Instance.playerKarma;
-        money = GloabalStats.Instance.playerMoney;
-        timeLeft = GloabalStats.Instance.playerTimeLeft;
-        currentPosition = GloabalStats.Instance.currentPosition;
+        UpdatePlayerData();
         if(currentPosition != null){
             this.transform.position = currentPosition;
         }
-        KarmaSliderHandler();
-        UpdateMoney();
     }
 
     void KarmaSliderHandler() {
@@ -50,6 +45,15 @@ public class CharacterStats : MonoBehaviour
             karmaSliderNegitive.value = 0;
             karmaSliderPositive.value = 0;
         }
+    }
+
+    public void UpdatePlayerData(){
+        karma = GloabalStats.Instance.playerKarma;
+        money = GloabalStats.Instance.playerMoney;
+        timeLeft = GloabalStats.Instance.playerTimeLeft;
+        currentPosition = GloabalStats.Instance.currentPosition;
+        KarmaSliderHandler();
+        UpdateMoney();
     }
 
     // Update is called once per frame

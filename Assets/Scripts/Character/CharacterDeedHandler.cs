@@ -26,6 +26,7 @@ public class CharacterDeedHandler : MonoBehaviour
     private TMP_Text dialogText;
     private bool goToNextDialog;
     private bool endOfDialog;
+    private bool isShopDeed;
 
 
     // Start is called before the first frame update
@@ -55,7 +56,9 @@ public class CharacterDeedHandler : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Deed"){
-            currentDeed = other.gameObject.GetComponent<NpcDeedHandler>().thisDeed;
+            NpcDeedHandler npcHandle = other.gameObject.GetComponent<NpcDeedHandler>();
+            currentDeed = npcHandle.thisDeed;
+            isShopDeed = npcHandle.isShopDeed;
             if(currentDeed.isEnabled){
                 interactText.text = "Press E to talk with " + currentDeed.npcName;
                 interactText.gameObject.transform.parent.gameObject.SetActive(true);
@@ -101,10 +104,30 @@ public class CharacterDeedHandler : MonoBehaviour
     }
 
     public void OnYes(){
-        charStats.currentPosition = transform.position;
-        charStats.SavePlayerData();
-        currentDeed.Disable();
-        SceneManager.LoadScene(currentDeed.miniGameSceneName, LoadSceneMode.Single);
+        if(!isShopDeed){
+            charStats.currentPosition = transform.position;
+            charStats.SavePlayerData();
+            currentDeed.Disable();
+            SceneManager.LoadScene(currentDeed.miniGameSceneName, LoadSceneMode.Single);
+        } else {
+            Debug.Log(currentDeed.npcName);
+            if(currentDeed.npcName == "Sneaky Sean" && charStats.money >= 15){
+                charStats.money -= 15;
+                charStats.karma -= 25;
+                currentDeed.Disable();
+                charStats.SavePlayerData();
+                charStats.UpdatePlayerData();
+            } else if(currentDeed.npcName == "Happy Harry" && charStats.money >= 15){
+                charStats.money -= 15;
+                charStats.karma += 25;
+                currentDeed.Disable();
+                charStats.SavePlayerData();
+                charStats.UpdatePlayerData();
+            } else{
+                Debug.Log("Not Enough Money");
+                CleanUp();
+            }
+        }
     }
 
     public void OnNo(){
