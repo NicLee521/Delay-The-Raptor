@@ -759,6 +759,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 103006865}
+    - target: {fileID: 2598523339038704, guid: a7763fe6ed82ac045aace34ae66e75ef, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a90b268513a648a48a792a9e399c25b8, type: 2}
+    - target: {fileID: 2598523339038704, guid: a7763fe6ed82ac045aace34ae66e75ef, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 4387889790918015266, guid: a90b268513a648a48a792a9e399c25b8, type: 2}
     - target: {fileID: 1306570054379536352, guid: a7763fe6ed82ac045aace34ae66e75ef, type: 3}
       propertyPath: m_fontAsset
       value: 
