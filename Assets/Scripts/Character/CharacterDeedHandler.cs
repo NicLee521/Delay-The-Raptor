@@ -23,6 +23,7 @@ public class CharacterDeedHandler : MonoBehaviour
     private TMP_Text dialogText;
     private bool goToNextDialog;
     private bool endOfDialog;
+    private GameObject interactTextBG; 
 
 
     // Start is called before the first frame update
@@ -35,7 +36,7 @@ public class CharacterDeedHandler : MonoBehaviour
     }
 
     void CleanUp(){
-        interactText.gameObject.SetActive(false);
+        interactText.gameObject.transform.parent.gameObject.SetActive(false);
         dialogParent.SetActive(false);
         yesOrNo.SetActive(false);
         inInteractCol = false;
@@ -53,7 +54,7 @@ public class CharacterDeedHandler : MonoBehaviour
             currentDeed = other.gameObject.GetComponent<NpcDeedHandler>().thisDeed;
             if(currentDeed.isEnabled){
                 interactText.text = "Press E to talk with " + currentDeed.npcName;
-                interactText.gameObject.SetActive(true);
+                interactText.gameObject.transform.parent.gameObject.SetActive(true);
                 inInteractCol = true;
             }
         }
@@ -70,7 +71,7 @@ public class CharacterDeedHandler : MonoBehaviour
     public void OnInteract(InputValue value){
         if(inInteractCol && !interactedWith){
             charMoveController.moveDisabled = true;
-            interactText.gameObject.SetActive(false);
+            interactText.gameObject.transform.parent.gameObject.SetActive(false);
             dialogGiver.text = currentDeed.npcName + ":";
             dialogParent.SetActive(true);
             dialogText.text ="";
