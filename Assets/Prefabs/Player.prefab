@@ -2278,6 +2278,7 @@ MonoBehaviour:
   karmaSliderPositive: {fileID: 1330616732}
   timerText: {fileID: 1106799514}
   moneyText: {fileID: 2057388350}
+  heart: {fileID: 7846927529376697020, guid: 0fe6b70a08a0544498d427b7fe65e928, type: 3}
 --- !u!136 &5655905966714352761
 CapsuleCollider:
   m_ObjectHideFlags: 0

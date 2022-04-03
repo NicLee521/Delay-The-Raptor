@@ -17,6 +17,7 @@ public class CharacterStats : MonoBehaviour
     public TMP_Text timerText;
     public TMP_Text moneyText;
     private Image karmaFill;
+    public GameObject heart;
 
 
     // Start is called before the first frame update
