@@ -6,7 +6,7 @@ public class EnemyAI : MonoBehaviour
 {
     public float moveSpeed = 5;
     public float rotationSpeed = 3;
-    private int health = 3;
+    private int health = 2;
 
     private BoxCollider hitBox;
     private GameObject player;
