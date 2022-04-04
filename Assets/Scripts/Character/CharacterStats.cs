@@ -22,11 +22,17 @@ public class CharacterStats : MonoBehaviour
     private Image karmaFill;
     public GameObject heart;
 
+    public GameObject overallLose;
+    public GameObject overallWin;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = gameObject.GetComponentInChildren<Animator>();
+        overallLose = GameObject.Find("Overall Lose");
+        overallWin = GameObject.Find("Overall Win");
+        overallLose.SetActive(false);
+        overallWin.SetActive(false);
         UpdatePlayerData();
         if(currentPosition != null &&  SceneManager.GetActiveScene().name == "Razorville"){
             this.transform.position = currentPosition;
@@ -129,9 +135,17 @@ public class CharacterStats : MonoBehaviour
             yield return null;
         }
         transform.position = targetPosition;
+        Time.timeScale = 0.0f;
+        overallWin.SetActive(true);
     }
 
     void PlayerLose(){
+        Time.timeScale = 0.0f;
+        overallLose.SetActive(true);
+    }
 
+    public void quitButton()
+    {
+        Application.Quit();
     }
 }
