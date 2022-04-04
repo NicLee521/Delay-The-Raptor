@@ -33,8 +33,9 @@ public class CharacterStats : MonoBehaviour
         overallWin = GameObject.Find("Overall Win");
         overallLose.SetActive(false);
         overallWin.SetActive(false);
+
         UpdatePlayerData();
-        if(currentPosition != null &&  SceneManager.GetActiveScene().name == "Razorville"){
+        if(currentPosition != null &&  SceneManager.GetActiveScene().name == "Razorville" && currentPosition != Vector3.zero){
             this.transform.position = currentPosition;
         }
     }
